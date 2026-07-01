@@ -1,0 +1,5 @@
+Put your subtle looping background music here and name it exactly:
+
+theme.mp3
+
+It starts after the guest logs in. Recommended: quiet, soft, 30-90 seconds, loops nicely.

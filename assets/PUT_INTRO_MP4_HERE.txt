@@ -1,0 +1,2 @@
+Put your intro video here and name it exactly: intro.mp4
+The website will fade it in and out automatically. If intro.mp4 is missing, it uses the animated magical fallback.

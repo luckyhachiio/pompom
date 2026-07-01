@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PomPom Birthday Quest</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/icon`.png" />
+</head>
+<body class="guest-page">
+  <div class="soft-noise"></div>
+
+  <audio id="openSound" preload="auto"><source src="assets/window-open.mp3" type="audio/mpeg"><source src="assets/open-fallback.wav" type="audio/wav"></audio>
+  <audio id="themeMusic" preload="auto" loop><source src="assets/theme.mp3" type="audio/mpeg"><source src="assets/theme-fallback.wav" type="audio/wav"></audio>
+  <audio id="victorySound" preload="auto"><source src="assets/victory.mp3" type="audio/mpeg"><source src="assets/victory-fallback.wav" type="audio/wav"></audio>
+  <audio id="hitSound" preload="auto"><source src="assets/hit.mp3" type="audio/mpeg"><source src="assets/hit-fallback.wav" type="audio/wav"></audio>
+  <audio id="koSound" preload="auto"><source src="assets/ko.mp3" type="audio/mpeg"><source src="assets/ko-fallback.wav" type="audio/wav"></audio>
+  <audio id="round1Sound" preload="auto"><source src="assets/round1.mp3" type="audio/mpeg"><source src="assets/round1-fallback.wav" type="audio/wav"></audio>
+  <audio id="round2Sound" preload="auto"><source src="assets/round2.mp3" type="audio/mpeg"><source src="assets/round2-fallback.wav" type="audio/wav"></audio>
+  <audio id="round3Sound" preload="auto"><source src="assets/round3.mp3" type="audio/mpeg"><source src="assets/round3-fallback.wav" type="audio/wav"></audio>
+  <audio id="fireworksSound" preload="auto"><source src="assets/fireworks.mp3" type="audio/mpeg"><source src="assets/fireworks-fallback.wav" type="audio/wav"></audio>
+
+  <!-- Extra generated game sound effects. These are small local WAV files, so GitHub Pages can host them. -->
+  <audio id="gameStartSound" preload="auto" src="assets/sfx/game-start.wav"></audio>
+  <audio id="collectSound" preload="auto" src="assets/sfx/collect.wav"></audio>
+  <audio id="badSound" preload="auto" src="assets/sfx/bad.wav"></audio>
+  <audio id="blockSound" preload="auto" src="assets/sfx/block.wav"></audio>
+  <audio id="moveSound" preload="auto" src="assets/sfx/move.wav"></audio>
+  <audio id="tapSound" preload="auto" src="assets/sfx/tap.wav"></audio>
+  <audio id="sudokuOkSound" preload="auto" src="assets/sfx/sudoku-ok.wav"></audio>
+  <audio id="sudokuWrongSound" preload="auto" src="assets/sfx/sudoku-wrong.wav"></audio>
+  <audio id="bridgeStretchSound" preload="auto" src="assets/sfx/bridge-stretch.wav"></audio>
+  <audio id="bridgeReleaseSound" preload="auto" src="assets/sfx/bridge-release.wav"></audio>
+  <audio id="bridgeLandSound" preload="auto" src="assets/sfx/bridge-land.wav"></audio>`
+  <audio id="bridgePerfectSound" preload="auto" src="assets/sfx/bridge-perfect.wav"></audio>
+  <audio id="bridgeFallSound" preload="auto" src="assets/sfx/bridge-fall.wav"></audio>
+  <audio id="marbleShootSound" preload="auto" src="assets/sfx/marble-shoot.wav"></audio>
+  <audio id="marblePopSound" preload="auto" src="assets/sfx/marble-pop.wav"></audio>
+  <audio id="marbleSwitchSound" preload="auto" src="assets/sfx/marble-switch.wav"></audio>
+  <audio id="paperSound" preload="auto" src="assets/sfx/paper.wav"></audio>
+  <audio id="fireworkPopSound" preload="auto" src="assets/sfx/firework-pop.wav"></audio>
+
+
+  <!-- Final polish ambience and effects: generated locally, safe for GitHub Pages. -->
+  <audio id="uiClickSound" preload="auto" src="assets/sfx/ui-click.wav"></audio>
+  <audio id="uiHoverSound" preload="auto" src="assets/sfx/ui-hover.wav"></audio>
+  <audio id="unlockKeySound" preload="auto" src="assets/sfx/unlock-key.wav"></audio>
+  <audio id="roadWhooshSound" preload="auto" src="assets/sfx/road-whoosh.wav"></audio>
+  <audio id="roadCrashSound" preload="auto" src="assets/sfx/road-crash.wav"></audio>
+  <audio id="roadCheckpointSound" preload="auto" src="assets/sfx/road-checkpoint.wav"></audio>
+  <audio id="powerupBlastSound" preload="auto" src="assets/sfx/powerup-blast.wav"></audio>
+  <audio id="dogBarkSound" preload="auto" src="assets/sfx/dog-bark.wav"></audio>
+  <audio id="pencilSound" preload="auto" src="assets/sfx/pencil.wav"></audio>
+  <audio id="comboSound" preload="auto" src="assets/sfx/combo.wav"></audio>
+  <audio id="windGustSound" preload="auto" src="assets/sfx/wind-gust.wav"></audio>
+  <audio id="punchSound" preload="auto" src="assets/sfx/punch.wav"></audio>
+  <audio id="kickSound" preload="auto" src="assets/sfx/kick.wav"></audio>
+  <audio id="blockGuardSound" preload="auto" src="assets/sfx/block-guard.wav"></audio>
+  <audio id="roundBellSound" preload="auto" src="assets/sfx/round-bell.wav"></audio>
+  <audio id="letterOpenSound" preload="auto" src="assets/sfx/letter-open.wav"></audio>
+
+  <audio id="bgRoadSound" preload="auto" loop src="assets/bgm/road-traffic-loop.wav"></audio>
+  <audio id="bgCatblobSound" preload="auto" loop src="assets/bgm/catblob-forest-loop.wav"></audio>
+  <audio id="bgSudokuSound" preload="auto" loop src="assets/bgm/sudoku-cafe-loop.wav"></audio>
+  <audio id="bgBridgeSound" preload="auto" loop src="assets/bgm/bridge-wind-loop.wav"></audio>
+  <audio id="bgMarbleSound" preload="auto" loop src="assets/bgm/marble-arcade-loop.wav"></audio>
+  <audio id="bgFightSound" preload="auto" loop src="assets/bgm/fight-battle-loop.wav"></audio>
+  <audio id="bgLettersSound" preload="auto" loop src="assets/bgm/letters-paper-loop.wav"></audio>
+  <audio id="bgFinaleSound" preload="auto" loop src="assets/bgm/finale-fireworks-loop.wav"></audio>
+
+  <div id="puddingLoader" class="pudding-loader hidden" aria-live="polite" aria-label="Loading screen">
+    <div class="loader-desktop-card">
+      <div class="loader-pup" aria-hidden="true">
+        <span class="loader-cat">♡</span>
+      </div>
+      <h2 id="loaderMessage">Loading...</h2>
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <div id="blueScreen" class="blue-screen hidden" aria-live="assertive">
+    <div class="bsod-face">૮ ˃̣̣̥ ﻌ ˂̣̣̥ ა</div>
+    <h1>PUDDING_OS ran into a tiny problem</h1>
+    <p>Inspect.exe tried to peek at the surprise.</p>
+    <p>Collecting system data... redirecting to emergency cute video.</p>
+    <div class="bsod-progress"><span></span></div>
+  </div>
+
+
+  <div id="bootSequence" class="boot-sequence" aria-live="polite">
+    <div class="bios-screen boot-step active" data-boot-step="bios">
+      <div class="bios-box">
+        <div class="bios-head">PUDDING BOARD UEFI · PomPom BIOS v2.22</div>
+        <p>Memory Test: 0222 MB OK</p>
+        <p>Detecting game drive... FOUND</p>
+        <p>Keyboard: press DEL or F2 to enter setup</p>
+        <p class="bios-warn">Booting from: PUDDING_OS_LOVE_DISK</p>
+      </div>
+    </div>
+    <div class="pudding-boot boot-step" data-boot-step="loading">
+      <div class="pudding-win-logo" aria-label="Pompompurin Windows-style logo"><span></span><span></span><span></span><span></span></div>
+      <h2>Pudding OS</h2>
+      <p>Preparing the birthday desktop...</p>
+      <div class="boot-spinner"></div>
+    </div>
+  </div>
+
+  <main id="loginScreen" class="login-screen">
+    <section class="login-card pop-card">
+      <div class="mini-banner">happy happy!</div>
+      <img class="login-banner-img" src="assets/pompom_banner.png" alt="Pompompurin party banner" />
+      <div class="pudding-pup big" aria-hidden="true">
+        <span class="ear left"></span><span class="ear right"></span>
+        <span class="hat"></span><span class="face">•ᴥ•</span>
+      </div>
+      <h1 id="loginTitle">Birthday Park is locked</h1>
+      <p id="loginSubtext">Enter the password to continue.</p>
+      <div id="countdown" class="countdown hidden"></div>
+      <label for="guestName">Name</label>
+      <input id="guestName" type="text" autocomplete="name" placeholder="your cute name" />
+      <label for="guestPassword">Password</label>
+      <input id="guestPassword" type="password" autocomplete="current-password" placeholder="secret password" />
+      <button id="loginBtn" class="main-btn">Open the park ✨</button>
+      <p id="loginError" class="error-text" role="alert"></p>
+      <p class="tiny-note">Static game site with puzzles, loading screens, and golden keys. <a class="admin-login-link" href="admin.html">admin</a></p>
+    </section>
+  </main>
+
+  <div id="introOverlay" class="intro-overlay hidden" aria-live="polite">
+    <div id="introPuddingMascot" class="intro-pudding-mascot" aria-hidden="true"><span class="pudding-win-logo mini"><span></span><span></span><span></span><span></span></span></div>
+    <div class="intro-glow" aria-hidden="true"></div>
+    <div class="intro-stars" aria-hidden="true">
+      <span>✨</span><span>🌼</span><span>🍮</span><span>💛</span><span>🎠</span><span>🔑</span>
+    </div>
+    <section class="intro-card pop-card">
+      <p class="section-kicker">magical welcome</p>
+      <h1>Opening Pudding Park...</h1>
+      <p>Every stage is a tiny ride. Finish a game, collect a golden key, and unlock the next piece of the birthday surprise.</p>
+      <button id="skipIntroBtn" class="ghost-btn">skip intro</button>
+    </section>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="pudding-desktop-icons" aria-label="Pudding OS desktop icons">
+      <button class="desktop-icon" data-os-app="Games"><span class="game-emoji">🎮</span><b>Games.exe</b></button>
+      <button class="desktop-icon" data-os-app="YouTube"><span class="yt-emoji">▶</span><b>YouTube</b></button>
+      <button class="desktop-icon" data-os-app="Files"><span class="folder-emoji">📁</span><b>Files</b></button>
+      <button class="desktop-icon" data-os-app="Surprises"><span class="lock-emoji">🔒</span><b>Surprises</b></button>
+      <button class="desktop-icon" data-os-app="Update"><span class="gear-emoji">⚙️</span><b>Update.exe</b></button>
+      <button class="desktop-icon" data-os-app="Love"><span class="heart-emoji">💛</span><b>Notes.exe</b></button>
+    </aside>
+    <header class="hero">
+      <div class="balloon b1">♡</div>
+      <div class="balloon b2">★</div>
+      <div class="balloon b3">♪</div>
+      <nav class="topbar">
+        <span class="brand"><span class="tiny-pup">૮ • ﻌ - ა</span> PomPom Birthday Quest</span>
+        <button id="resetProgressBtn" class="ghost-btn" title="Reset only this browser progress">reset progress</button>
+      </nav>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="tag">Pudding OS game launcher</p>
+          <h1 id="siteTitle">Welcome to Pudding Park</h1>
+          <p id="siteIntro">Complete the stages, collect keys, then open the ending folder.</p>
+          <button data-jump="map" class="main-btn">Start the adventure</button>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="striped-card">
+            <img class="hero-png" src="https://www.pngmart.com/files/23/Pompompurin-PNG-Isolated-Photo.png" alt="Cute Pompompurin decoration" />
+            <div class="pudding-pup">
+              <span class="ear left"></span><span class="ear right"></span>
+              <span class="hat"></span><span class="face">•ᴥ•</span>
+            </div>
+            <div class="friend-row">
+              <span>🌼</span><span>🎈</span><span>🍮</span><span>💌</span><span>🎁</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="map" class="section park-map">
+      <p class="section-kicker">choose your ride</p>
+      <h2>Magical Birthday Stages</h2>
+      <p class="section-note">Each stage unlocks the next. Finish every game, collect every key, then open the Finale Castle.</p>
+      <div id="stageGrid" class="stage-grid"></div>
+    </section>
+
+    <section id="stageArea" class="section stage-area hidden" aria-live="polite">
+      <button id="backToMap" class="ghost-btn">← back to map</button>
+      <div id="stageContent"></div>
+    </section>
+
+    <section class="section credits">
+      <div class="pop-card footer-card">
+        <h2>Little reminder</h2>
+        <p>All stages are complete when every golden key is collected.</p>
+        <p class="tiny-note">PNG decorations load from PNGMart for your personal birthday surprise. Replace them with your own local files if you publish it publicly.</p>
+      </div>
+    </section>
+    <div id="osWindowLayer" class="os-window-layer hidden"></div>
+    <div class="pudding-taskbar" aria-hidden="true">
+      <div class="task-start">▦</div>
+      <div class="task-search">🔎 Search</div>
+      <button class="task-sound" id="taskSoundBtn" type="button">🔊</button><div class="task-status">🔋 100% &nbsp; Wi‑Fi</div>
+    </div>
+  </div>
+
+  <template id="stageCardTemplate">
+    <article class="stage-card pop-card">
+      <div class="stage-icon"></div>
+      <div>
+        <p class="stage-number"></p>
+        <h3></h3>
+        <p class="stage-desc"></p>
+      </div>
+      <button class="stage-btn main-btn"></button>
+      <span class="lock-ribbon">locked</span>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

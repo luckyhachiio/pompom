@@ -1,0 +1,4 @@
+Optional final race sound effects:
+
+hit.mp3 = bump / collision sound
+ko.mp3 = crash, fail, or fake blue screen sound

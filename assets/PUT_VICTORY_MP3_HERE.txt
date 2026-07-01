@@ -1,0 +1,5 @@
+Put your game-clear sound here and name it exactly:
+
+victory.mp3
+
+It plays after each stage is completed and a golden key is saved.

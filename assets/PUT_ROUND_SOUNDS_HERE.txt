@@ -1,0 +1,6 @@
+Optional fighting round sounds:
+round1.mp3
+round2.mp3
+round3.mp3
+
+Put them in this assets folder.

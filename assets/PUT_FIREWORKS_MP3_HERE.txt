@@ -1,0 +1,1 @@
+Optional: add your own finale sound as assets/fireworks.mp3. A fallback WAV is already included.

@@ -1,0 +1,2 @@
+Add your Windows-like opening sound here and name it: window-open.mp3
+The website will automatically play assets/window-open.mp3 when the loading screen opens.

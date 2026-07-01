@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hidden Admin - PomPom Birthday Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-page">
+  <div class="soft-noise"></div>
+  <main class="admin-shell">
+    <section id="adminLogin" class="login-card pop-card">
+      <div class="mini-banner">hidden editor</div>
+      <h1>Admin Panel</h1>
+      <p>This is your secret editor page. Do not send this link to her.</p>
+      <label for="adminPassword">Admin password</label>
+      <input id="adminPassword" type="password" placeholder="admin secret" />
+      <button id="adminLoginBtn" class="main-btn">Enter editor</button>
+      <p id="adminLoginError" class="error-text"></p>
+      <p class="tiny-note">Default admin password: <b>admin</b>. For GitHub Pages, you can also edit letters directly in <b>content/letters/letter1.txt</b>, <b>letter2.txt</b>, etc.</p>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <div class="admin-head pop-card">
+        <div>
+          <p class="section-kicker">secret workshop</p>
+          <h1>Build her birthday park</h1>
+          <p>Edit letters, memories, the login password, and the final message. Saves in this browser using localStorage.</p>
+        </div>
+        <div class="admin-actions">
+          <a class="ghost-btn" href="index.html">open guest site</a>
+          <button id="saveAllBtn" class="main-btn">Save changes</button>
+        </div>
+      </div>
+
+      <div id="saveNotice" class="save-notice hidden">Saved! ✨</div>
+
+      <form id="editorForm" class="editor-grid">
+        <section class="editor-section pop-card">
+          <h2>Lock and welcome settings</h2>
+          <label>Guest password</label>
+          <input name="guestPassword" type="text" />
+          <label>Admin password</label>
+          <input name="adminPassword" type="text" />
+          <label>Unlock date/time</label>
+          <input name="unlockDate" type="datetime-local" />
+          <p class="tiny-note">Leave unlock date empty if you only want password lock.</p>
+          <label>Her name / nickname</label>
+          <input name="herName" type="text" />
+          <label>Website title</label>
+          <input name="title" type="text" />
+          <label>Welcome intro</label>
+          <textarea name="intro" rows="4"></textarea>
+        </section>
+
+        <section class="editor-section pop-card">
+          <div class="editor-title-row">
+            <h2>Love letters</h2>
+            <button id="addLetterBtn" type="button" class="ghost-btn">+ add letter</button>
+          </div>
+          <div id="letterEditorList" class="editor-list"></div>
+        </section>
+
+        <section class="editor-section pop-card full-span">
+          <div class="editor-title-row">
+            <h2>Memory gallery</h2>
+            <button id="addMemoryBtn" type="button" class="ghost-btn">+ add memory</button>
+          </div>
+          <p class="tiny-note">Upload small photos or paste image URLs. Large photos can fill browser storage fast, so compress them if needed.</p>
+          <div id="memoryEditorList" class="memory-editor-list"></div>
+        </section>
+
+        <section class="editor-section pop-card full-span">
+          <h2>Finale message</h2>
+          <textarea name="finalMessage" rows="6"></textarea>
+          <div class="export-row">
+            <button id="exportBtn" type="button" class="ghost-btn">Export backup JSON</button>
+            <button id="importBtn" type="button" class="ghost-btn">Import backup JSON</button>
+          </div>
+          <textarea id="backupBox" rows="5" placeholder="Exported backup appears here. Paste a backup here before importing."></textarea>
+        </section>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
