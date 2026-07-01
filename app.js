@@ -1427,10 +1427,10 @@
     panel.innerHTML = `
       <p class="section-kicker">stage 5</p>
       <h2>Pudding Marble Pop</h2>
-      <p>Aim at the marble chain, shoot colors, and match 3 or more. Reach 24 points.</p>
+      <p>Aim at the marble chain, shoot colors, and match 3 or more. Reach 150 points.</p>
       <div class="marble-os-hud">
         <div><span class="hud-label">score</span><strong id="marbleScore">0</strong></div>
-        <div><span class="hud-label">goal</span><strong>24</strong></div>
+        <div><span class="hud-label">goal</span><strong>150</strong></div>
         <div><span class="hud-label">next</span><strong id="marbleNextDot">●</strong></div>
       </div>
       <div class="marble-game-shell pop-card">
@@ -1472,7 +1472,7 @@
     const H = 540;
     const radius = 16;
     const gap = radius * 2 + 5;
-    const goalScore = 500;
+    const goalScore = 150;
     const player = { x: W / 2, y: H / 2 + 8 };
     const colors = ["#ffd86f", "#ffb7be", "#8fd9a8", "#9fd3ff"];
     const pathPoints = [
